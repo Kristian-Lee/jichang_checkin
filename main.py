@@ -36,7 +36,7 @@ def sign(order,user,pwd):
                 content = result['msg']
                 # 进行推送
                 if SCKEY != '':
-                        push_url = 'https://sctapi.ftqq.com/{}.send?title=机场签到&desp={}'.format(SCKEY, content)
+                        push_url = 'https://sctapi.ftqq.com/{}.send?title=签到成功&desp={}'.format(SCKEY, content)
                         requests.post(url=push_url)
                         print('推送成功')
         except Exception as ex:
@@ -44,7 +44,7 @@ def sign(order,user,pwd):
                 print(content)
                 print("出现如下异常%s"%ex)
                 if SCKEY != '':
-                        push_url = 'https://sctapi.ftqq.com/{}.send?title=机场签到&desp={}'.format(SCKEY, content)
+                        push_url = 'https://sctapi.ftqq.com/{}.send?title=签到失败&desp={}'.format(SCKEY, content)
                         requests.post(url=push_url)
                         print('推送成功')
         print('===账号{order}签到结束===\n'.format(order=order))
